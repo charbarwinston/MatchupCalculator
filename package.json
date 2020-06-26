@@ -2,10 +2,12 @@
   "name": "matchupcalculator",
   "version": "1.0.0",
   "description": "Find yours league match-ups dawg",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "test": "test",
-    "start": "node index.js"
+    "frontend": "cd frontend && npm start",
+    "server": "cd server && npm start",
+    "start": "concurrently - kill-others \"npm run server\" \"npm run frontend\""
   },
   "repository": {
     "type": "git",
