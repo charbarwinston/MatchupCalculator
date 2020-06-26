@@ -1,2 +1,2 @@
 # MatchupCalculator
-Find yours league match ups dawg
+Find your league match-ups dawg
