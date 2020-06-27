@@ -5,9 +5,9 @@
   "main": "server/index.js",
   "scripts": {
     "test": "test",
-    "frontend": "cd frontend && npm start",
+    "client": "cd client && npm start",
     "server": "cd server && npm start",
-    "start": "concurrently - kill-others \"npm run server\" \"npm run frontend\""
+    "start": "concurrently - kill-others \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/charbarwinston/MatchupCalculator#readme",
   "dependencies": {
     "bootstrap": "^4.5.0",
+    "concurrently": "^5.2.0",
     "express": "^4.17.1"
   }
 }
