@@ -6,7 +6,7 @@ const Matchup = (props) => {
   const [opponentChampion, setOpponentChampion] = useState('Garen');
 
   return (
-    <div className="matchup card">
+    <div className="matchup card bg-primary">
       <div className="card-header">
         <h2>The Matchup</h2>
       </div>

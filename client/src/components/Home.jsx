@@ -4,7 +4,7 @@ import Matchup from './Matchup';
 const Home = (props) => {
   return (
     <div className="home">
-      <div className="row">
+      <div className="row mt-4">
         <div className="col-12">
           <h1>LoL Matchup Calculator</h1>
         </div>
