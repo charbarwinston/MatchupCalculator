@@ -23,6 +23,6 @@ const Home = (props) => {
       </form>
     </div> 
   );
-}
+};
 
 export default Home;
