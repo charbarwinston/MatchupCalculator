@@ -23,20 +23,38 @@ const testMatch = {
 
 var url = "mongodb://localhost:27017/" + testDbName;
 
-function buildDatabase() {
-    MongoClient.connect(url)
-      .then((db) => {
-        var dbo = db.db(testDbName);
-        dbo.createCollection(testCollectionName)
-        .then(() => {
-          console.log("test collection created!");
-          db.close();
-        })
-        .catch(() => {
-          console.log("test collection failed!");
-          db.close();
-        })
-    }).catch(console.log("Failed to connect to database"));
+function handleError(err){
+  console.log(err); 
+  throw(err);
 }
 
-buildDatabase()
+async function seedDatabaseCollection() {
+  const client = await MongoClient.connect(url)
+    .catch(err => { 
+      handleError(err);
+    });
+
+  const db = await client.db(testDbName);
+  createTestCollection(db);
+  insertTestData(db);
+}
+
+async function createTestCollection(db) {
+  await db.createCollection(testCollectionName)
+    .catch(err => {
+      handleError(err);
+    });
+}
+
+async function insertTestData(db){
+  await db.collection(testCollectionName).insertOne(testMatch)
+    .catch((err) => {
+      handleError(err);
+    })
+
+}
+
+
+module.exports = {
+  seedDatabaseCollection
+}
