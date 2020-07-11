@@ -34,20 +34,20 @@ async function seedDatabaseCollection() {
       handleError(err);
     });
 
-  const db = await client.db(testDbName);
+  const db = client.db(testDbName);
   createTestCollection(db);
   insertTestData(db);
 }
 
-async function createTestCollection(db) {
-  await db.createCollection(testCollectionName)
+function createTestCollection(db) {
+  db.createCollection(testCollectionName)
     .catch(err => {
       handleError(err);
     });
 }
 
-async function insertTestData(db){
-  await db.collection(testCollectionName).insertOne(testMatch)
+function insertTestData(db){
+  db.collection(testCollectionName).insertOne(testMatch)
     .catch((err) => {
       handleError(err);
     })
