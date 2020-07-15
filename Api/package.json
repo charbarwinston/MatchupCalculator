@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "mocha --reporter list test/**/*.js"
+    "test": "jest"
   },
   "dependencies": {
     "chai": "^4.2.0",
@@ -13,6 +13,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "jest": "^26.1.0",
     "mocha": "^8.0.1",
     "mongodb": "^3.5.9",
     "morgan": "~1.9.1",
